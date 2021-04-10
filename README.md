@@ -1,0 +1,2 @@
+# webscraping-Telegram-Bot
+Every day at my work I support technical agents that solve issues in client's houses need to validate if the set-top box device is operational and ready to deliver the TV channels.  I do it by type the serial number into a web page that manages the provisioning, next I click a button. I have decided to make a Robot on telegram that can communicate with an App running on nodeJS doing web scraping.  Then I deliver the validation to the Telegram robot and the robot to the technical support.
