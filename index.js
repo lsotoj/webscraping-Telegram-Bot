@@ -1,31 +1,21 @@
 
 const pageDeploy = require('./webScraping/pageDeploy');
 
-function robot() {
-    pageDeploy.deploy();
+async function robot() {
+
+
+    const images = await pageDeploy.deploy();
+    console.log(images.length);
+    console.log(images);
+        // .then((images) => {
+        //     console.log(images.length);
+        //     console.log(typeof(images));
+        //     console.log(images);
+        // })
+        // .catch(err => {
+        //     console.log(`no se pudieron obtener los datos : ${err}`);
+        // });
+
+
 }
 robot();
-
-
-// ( async () => {
-//     const user = credentials.user;
-//     const password = credentials.password;
-//     const sn = 'MV2035VR2158';
-
-//     const browser = await Puppeteer.launch({
-//         headless: false,
-//         ignoreHTTPSErrors: true,
-//     });
-    
-//     const page = await browser.newPage();
-
-//     //await page.screenshot({ path: 'dac.jpg' });
-//     await page.goto('https://10.64.16.24');
-//     await page.type('#username', user);
-//     await page.type('#password', password);
-//     await page.click('span.form:nth-child(1) > input:nth-child(1)');
-//     await page.goto('https://10.64.16.24/pages/consumer/terminals/terminals.jsf');
-
-
-// })();
- 

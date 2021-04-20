@@ -1,3 +1,4 @@
+*.jpeg
 credentials.json
 node_modules/
 arrays.js
