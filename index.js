@@ -1,20 +1,24 @@
 
+const {Telegraf} = require('telegraf');
 const pageDeploy = require('./webScraping/pageDeploy');
 
 async function robot() {
+    const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
+    bot.start();
+    
+    bot.start((ctx) => {
+        ctx.reply('Bienvenido al bot para validacion de Set-Top Box únicamente DCX. Escribe /help para saber como funciona');
+    });
+
+    bot.command(['validar', 'VALIDAR', 'Validar'], (ctx) => {
+        ctx.reply('Por favor ingresa el número de serie...');
+        console.log(ctx);
+    });
+
+    bot.launch();
+    //const images = await pageDeploy.deploy();
 
 
-    const images = await pageDeploy.deploy();
-    console.log(images.length);
-    console.log(images);
-        // .then((images) => {
-        //     console.log(images.length);
-        //     console.log(typeof(images));
-        //     console.log(images);
-        // })
-        // .catch(err => {
-        //     console.log(`no se pudieron obtener los datos : ${err}`);
-        // });
 
 
 }

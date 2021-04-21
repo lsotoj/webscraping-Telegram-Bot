@@ -1,4 +1,5 @@
 *.jpeg
+.env
 credentials.json
 node_modules/
 arrays.js

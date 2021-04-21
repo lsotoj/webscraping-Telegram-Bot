@@ -1,10 +1,10 @@
 const Puppeteer  = require("puppeteer");
-const credentials = require('../credentials.json');
+require('dotenv').config();
 
 
 exports.deploy = async function() {
-    const user = credentials.user;
-    const password = credentials.password;
+    const user = process.env.DAC_USER;
+    const password = process.env.DAC_PASSWORD;
     const sn = 'M10921TG1186';
     //const sn = 'M10931TG1197';
     const images = [];
@@ -16,7 +16,7 @@ exports.deploy = async function() {
     
     //Deployment of puppeteer
     const browser = await Puppeteer.launch({
-        headless: true,
+        headless: false,
         ignoreHTTPSErrors: true,
         defaultViewport: null,
     });
