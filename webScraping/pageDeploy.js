@@ -2,10 +2,10 @@ const Puppeteer  = require("puppeteer");
 require('dotenv').config();
 
 
-exports.deploy = async function() {
+exports.deploy = async function(serial) {
     const user = process.env.DAC_USER;
     const password = process.env.DAC_PASSWORD;
-    const sn = 'M10921TG1186';
+    const sn = serial;
     //const sn = 'M10931TG1197';
     const images = [];
     const formatImage = {
@@ -42,9 +42,10 @@ exports.deploy = async function() {
     } catch {
         console.error("Serie no encontrada");
         images.push(await page.screenshot({ 
-            path: 'NotFound.jpeg',
+            path: `${sn}NotFound.jpeg`,
             ...formatImage
-        }))
+        }));
+        await browser.close();
         return images;
     }
 
