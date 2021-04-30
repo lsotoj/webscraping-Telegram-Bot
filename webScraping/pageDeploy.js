@@ -7,7 +7,6 @@ exports.deploy = async function(serial) {
     const password = process.env.DAC_PASSWORD;
     const sn = serial;
     const images = [];
-    const names = [];
     const formatImage = {
         type: 'jpeg',
         quality: 100,
@@ -18,34 +17,60 @@ exports.deploy = async function(serial) {
 
     //Puppeteer configuration
     const browser = await Puppeteer.launch({
-        headless: true,
+        headless: false,
         ignoreHTTPSErrors: true,
         defaultViewport: null,
+        args:[
+            '--start-maximized' // you can also use '--start-fullscreen'
+         ],
     });
+    //this click accept into the emergin window
     const page = await browser.newPage();
     page.on('dialog', async dialog => {
         await dialog.accept();
     });
 
+
     await page.goto('https://10.64.16.24');
-    await page.type('#username', user);
-    await page.type('#password', password);
+    await page
+        .waitForSelector('#username')
+        .then( async () =>  await page.type('#username', user) )
+        .catch((e) => console.error(`No se encuentra el campo user, error: ${e}`));
+    
+    await page
+        .waitForSelector('#password')
+        .then( async () =>  await page.type('#password', password) )
+        .catch((e) => console.error(`No se encuentra el campo password, error: ${e}`));
+    
     await page.click('span.form:nth-child(1) > input:nth-child(1)');
     await page.goto('https://10.64.16.24/pages/consumer/terminals/terminals.jsf');
-    await page.waitForTimeout(3000);
+
+    // await page.goto('https://10.64.16.24');
+    // await page.type('#username', user);
+    // await page.type('#password', password);
+    // await page.click('span.form:nth-child(1) > input:nth-child(1)');
+    // await page.goto('https://10.64.16.24/pages/consumer/terminals/terminals.jsf');
     
-    try {
-        await page.type('.querySerialNumberStyle input', sn);
-    } catch (e) {
-        console.log(`No se encuentra el selector para ingresar el SN error: ${e}`);
-    }
     
-    page
+    await page
+        .waitForSelector('.querySerialNumberStyle input')
+        .then( async () =>  await page.type('.querySerialNumberStyle input', sn))
+        .catch((e) => console.error(`No se encuentra el campo para ingresar el SN, error: ${e}`));
+
+
+
+    // try {
+    //     await page.type('.querySerialNumberStyle input', sn);
+    // } catch (e) {
+    //     console.log(`No se encuentra el selector para ingresar el SN error: ${e}`);
+    // }
+    
+    await page
         .waitForSelector('.button')
-        .then(() =>  page.click('.button'))
+        .then( async () => await  page.click('.button'))
         .catch((e) => console.error(`Boton search not found, error: ${e}`));
     
-        await page.waitForTimeout(5000);
+    await page.waitForTimeout(5000);
     
     //if the set-top box exist then it will launch the refresh button 
     //otherwise the button doesn't will exist and the catch will does capture the error. 
