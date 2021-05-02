@@ -20,6 +20,7 @@ exports.deploy = async function(serial) {
         headless: false,
         ignoreHTTPSErrors: true,
         defaultViewport: null,
+        
         args:[
             '--start-maximized' // you can also use '--start-fullscreen'
          ],
