@@ -17,12 +17,11 @@ exports.deploy = async function(serial) {
 
     //Puppeteer configuration
     const browser = await Puppeteer.launch({
+        ignoreHTTPSErrors: true,                                                                                                                                     
         headless: false,
-        ignoreHTTPSErrors: true,
         defaultViewport: null,
-        
         args:[
-            '--start-maximized' // you can also use '--start-fullscreen'
+            '--start-maximized', // you can also use '--start-fullscreen'
          ],
     });
     //this click accept into the emergin window
@@ -32,7 +31,7 @@ exports.deploy = async function(serial) {
     });
 
 
-    await page.goto('https://10.64.16.24');
+    await page.goto('https://10.64.16.24/login.jsf;jsessionid=9D137B5F9FC2DA4B892E82994A5A103B');
     await page
         .waitForSelector('#username')
         .then( async () =>  await page.type('#username', user) )
