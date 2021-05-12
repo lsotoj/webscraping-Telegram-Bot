@@ -1,2 +1,6 @@
-require('./bot/robot.js');
-require('./webScraping/pageDeploy');
+module.exports.run = function() {
+    require('./bot');
+    require('./webScraping/pageDeploy');
+}
+
+//run();
