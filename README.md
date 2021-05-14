@@ -1,7 +1,7 @@
-# Bot-dac :tw-1f4fa:
+# Bot-dac :tv:
 On HFC networks we have Digital Addressable Controllers providing secured access control for digital video distribution systems. Bot-dac is a library on JavaScript To help non-administrators users. Makes it easy to extract information from the DAC.
 ___
-## Installation :tw-1f4e5:
+## Installation :books:
 To install bot-dac you need to have installed NodeJs.
 Then you will type:
 
