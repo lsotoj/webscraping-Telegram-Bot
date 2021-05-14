@@ -11,14 +11,13 @@ Then you will type:
 
 ## Deployment :package:
 **Bot-dac** uses two principal libraries. The first one is [Puppeteer](https://pptr.dev/ "Puppeteer") that made web scraping and the second is [Telegraf](https://telegraf.js.org/ "Telegraf") that interacts with the [Telegram Bot API](https://core.telegram.org/bots "Telegram Bot API"). You need to configure nothing on them.
-
 As you know. The DAC stores all set-top boxes information. So to extract that information. Bot-dac realizes a web scraping to the principal tabs and returns it via telegram message.
 
-    <img src="https://img.icons8.com/fluent/48/000000/telegram-app.png"/>
+<img src="https://img.icons8.com/fluent/48/000000/telegram-app.png"/>
 
-To reach run the Bot-dac you need to configure some environment variables on your operating system.
+To reach to run the Bot-dac on your computer or server. You need to configure some environment variables on your operating system.
 
- As I said, I use a Robot on Telegram to return the information. So you need to create a robot on Telegram with [BotFather](https://t.me/botfather "BotFather"). When you ended the process Telegram will give you a TOKEN. **Save it, it will be confidential**. You can review the [Telegram API Doc](https://core.telegram.org/bots "Telegram API Doc") to learn how it works.
+ Bot-dac uses a robot of Telegram to return the information. So you need to create a robot on Telegram with [BotFather](https://t.me/botfather "BotFather"). When you ended the process Telegram will give you a TOKEN. **Save it, it will be confidential**. You can review the [Telegram API Doc](https://core.telegram.org/bots "Telegram API Doc") to learn how it works.
 
 1. The first one environment variable is the bot token:
 	
@@ -26,11 +25,16 @@ To reach run the Bot-dac you need to configure some environment variables on you
 	
 	*This is an example. The BotFather will give you your own and unique token.*
 
-2. The DAC user.
+2. The DAC user:
+ 
 	`DAC_USER=user`
-3. The DAC password.
+
+3. The DAC password:
+
 	`DAC_PASSWORD=password`
-4. The DAC URL or IP.
+	
+4. The DAC URL or IP:
+
 	`DAC_URL=https://...`
 
 *To configure the environment variables I used dotenv. Feel free to configure at your way these environment variables on your operating system.*
