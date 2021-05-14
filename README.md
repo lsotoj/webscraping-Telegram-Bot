@@ -9,10 +9,11 @@ Then you will type:
 
 *The package installation will be installing a Chromium version. It due to we used puppeteer, a library on JavaScript for web scraping. And his default web explorer is Chromium.*
 
-##Deployment :package:	
+## Deployment :package:
 **Bot-dac** uses two principal libraries. The first one is [Puppeteer](https://pptr.dev/ "Puppeteer") that made web scraping and the second is [Telegraf](https://telegraf.js.org/ "Telegraf") that interacts with the [Telegram Bot API](https://core.telegram.org/bots "Telegram Bot API"). You need to configure nothing on them.
 
-As you know. The DAC stores all set-top boxes information. So to extract that information. Bot-dac realizes a web scraping to the principal tabs and returns it via telegram message.<img src="https://img.icons8.com/fluent/48/000000/telegram-app.png"/>
+As you know. The DAC stores all set-top boxes information. So to extract that information. Bot-dac realizes a web scraping to the principal tabs and returns it via telegram message.
+<img src="https://img.icons8.com/fluent/48/000000/telegram-app.png"/>
 
 To reach run the Bot-dac you need to configure some environment variables on your operating system.
 
