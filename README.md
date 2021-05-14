@@ -13,7 +13,8 @@ Then you will type:
 **Bot-dac** uses two principal libraries. The first one is [Puppeteer](https://pptr.dev/ "Puppeteer") that made web scraping and the second is [Telegraf](https://telegraf.js.org/ "Telegraf") that interacts with the [Telegram Bot API](https://core.telegram.org/bots "Telegram Bot API"). You need to configure nothing on them.
 
 As you know. The DAC stores all set-top boxes information. So to extract that information. Bot-dac realizes a web scraping to the principal tabs and returns it via telegram message.
-<img src="https://img.icons8.com/fluent/48/000000/telegram-app.png"/>
+
+    <img src="https://img.icons8.com/fluent/48/000000/telegram-app.png"/>
 
 To reach run the Bot-dac you need to configure some environment variables on your operating system.
 
