@@ -12,7 +12,7 @@
     "deploy": "node App.js"
   },
   "name": "bot-dac",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a package to help managers of the Digital Addressable Controller 6000 system (DAC 6000). This package makes consults by webscraping to his web GUI and returns the data of the Set-Top Box such as for example Installation configuration of the Set-Top Box, Authorization packages, Status of the Set-Top Box.",
   "main": "App.js",
   "repository": {
